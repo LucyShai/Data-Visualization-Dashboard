@@ -1,12 +1,9 @@
-// ==========================
-// Required Dependencies
-// ==========================
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const XLSX = require("xlsx");
 const fs = require("fs");
-const pool = require("./dbConnection"); // MySQL connection pool
+const pool = require("./dbConnection"); 
 const cors = require("cors");
 require("dotenv").config();
 
@@ -14,9 +11,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// ==========================
-// File Upload Setup
-// ==========================
 const UPLOAD_DIR = path.join(__dirname, "uploads");
 
 // Create uploads folder if it doesn’t exist
@@ -39,10 +33,6 @@ const upload = multer({
     else cb(new Error("Only .xlsx files are allowed"));
   },
 });
-
-// ==========================
-// Routes
-// ==========================
 
 // Upload & Process Excel File
 // POST /api/finances/upload/:userId/:year
@@ -168,8 +158,5 @@ app.get("/api/finances/:userId/:year", async (req, res) => {
   }
 });
 
-// ==========================
-// Start Server
-// ==========================
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
