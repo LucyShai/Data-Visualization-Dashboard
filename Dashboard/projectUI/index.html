@@ -1,7 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
 
-<body></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <section class="section__container">
+        <h2 class="section__header">Financial Dashboard</h2>
+        <p class="section__description">Upload, fetch, and analyze user financial data.</p>
+
+        <div class="form-wrapper">
+            <div class="form__container">
+                <!-- Fetch Form -->
+                <form id="fetchForm" class="form-group">
+                    <div class="input-row">
+                        <input type="number" id="fetchUserId" placeholder="User ID" class="input" />
+                        <input type="number" id="fetchYear" placeholder="Year" class="input" />
+                    </div>
+                    <button type="button" id="fetchBtn" class="btn">Fetch Data</button>
+                </form>
+
+                <!-- Upload Form -->
+                <form id="uploadForm" class="form-group">
+                    <input type="file" class="input" id="fileInput" />
+                    <button type="button" id="uploadBtn" class="btn">Upload</button>
+                    <div id="uploadStatus" class="status-text"></div>
+                </form>
+
+            </div>
+            <!-- Chart -->
+            <div id="chart-container">
+                <canvas id="financeChart"></canvas>
+            </div>
+
+            <!-- Table -->
+            <div class="table__wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsTableBody">
+                        <!-- Data rows here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
 
 </html>
